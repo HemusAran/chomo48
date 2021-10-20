@@ -15,7 +15,6 @@ enum layer_number {
 enum custom_keycodes {
     LT_LOWER = SAFE_RANGE,
     LT_RAISE,
-    LT_ADJUST,
     SFT_ENT,
 };
 
@@ -31,7 +30,7 @@ enum custom_keycodes {
 
 #define UNDER_B LSFT(JP_BSLS)       // under bar
 #define RDP LCTL(LALT(KC_PAUSE))    // Remote Desktop - Full screen on/off
-#define CADEL LCTL(LALT(KC_DEL))    // Control Alt Delete
+#define C_A_DEL LCTL(LALT(KC_DEL))    // Control Alt Delete
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -55,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|--------+--------+--------+--------+--------+--------|
         KC_LSFT,    JP_N, XXXXXXX, XXXXXXX,  KC_ENT,  KC_DEL, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, JP_SLSH, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, _______,LT_ADJUST,SFT_ENT,LT_ADJUST, KC_LGUI, XXXXXXX, XXXXXXX, RESET
+        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, _______,LT_RAISE, SFT_ENT,LT_RAISE, KC_LGUI, XXXXXXX, XXXXXXX, RESET
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
     ),
 
@@ -67,13 +66,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, JP_LCBR, JP_RCBR, JP_BSLS, JP_LABK, JP_RABK, JP_QUES, JP_UNDS,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT,LT_ADJUST,_______, SFT_ENT, _______, KC_LGUI, XXXXXXX, XXXXXXX, RESET
+        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT,LT_LOWER, _______, SFT_ENT, _______, KC_LGUI, XXXXXXX, XXXXXXX, RESET
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
     ),
 
     [_ADJUST] = LAYOUT(
     //,-----------------------------------------------------------------------------------------------------------.
-        JP_ZKHK,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   RESET, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,     RDP,   CADEL,
+        JP_ZKHK,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   RESET, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,     RDP, C_A_DEL,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         KC_LCTL,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_BTN1, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, JP_CAPS,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
@@ -139,15 +138,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     // 時間が経過したため単押しとして処理しない
                 }
                 raise_pressed = false;
-            }
-            return false;
-            break;
-
-        case LT_ADJUST:
-            if (record->event.pressed) {
-                layer_on(_ADJUST);
-            } else {
-                layer_off(_ADJUST);
             }
             return false;
             break;
