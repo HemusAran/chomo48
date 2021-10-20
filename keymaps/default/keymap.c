@@ -21,11 +21,11 @@ enum custom_keycodes {
 #define USE_MAC 1
 
 #ifdef USE_MAC
-  #define D_EISU KC_LANG2   // Mac Eisu Key (Windows 20H2 Eisu)
-  #define D_KANA KC_LANG1   // Mac Kana Key (Windows 20H2 Kana)
+    #define D_EISU KC_LANG2   // Mac Eisu Key (or Windows 20H2 Eisu)
+    #define D_KANA KC_LANG1   // Mac Kana Key (or Windows 20H2 Kana)
 #else
-  #define D_EISU KC_MHEN    // Windows Muhenkan Key
-  #define D_KANA KC_HENK    // Windows Henkan Key
+    #define D_EISU KC_MHEN    // Windows Muhenkan Key
+    #define D_KANA KC_HENK    // Windows Henkan Key
 #endif
 
 #define UNDER_B LSFT(JP_BSLS)       // under bar
@@ -165,8 +165,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         default:
             if (record->event.pressed) {
-                // lower, raise, enter以外のキーが押された場合、
-                // 単押しではないためフラグを寝かせる。
+                // 別のキーが押された場合、単押しではないためフラグを寝かせる。
                 lower_pressed = false;
                 raise_pressed = false;
                 enter_pressed = false;
@@ -179,8 +178,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef CONSOLE_ENABLE
 void matrix_init_kb(void) {
-    // debug_enable = true;
-    // debug_matrix = true;
-    // debug_mouse  = true;
+    debug_enable = true;
+    debug_matrix = true;
+    debug_mouse  = true;
 }
 #endif

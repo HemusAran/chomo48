@@ -11,4 +11,4 @@ AUDIO_ENABLE = no           # Audio output on port C6
 TAP_DANCE_ENABLE = no
 MOUSEKEY_ENABLE = yes
 
-CONSOLE_ENABLE = yes
+CONSOLE_ENABLE = no
