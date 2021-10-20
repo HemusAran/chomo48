@@ -12,13 +12,6 @@ enum layer_number {
     _ADJUST,
 };
 
-enum layer_oled_number {
-    L_BASE = 0,
-    L_LOWER = 2,
-    L_RAISE = 4,
-    L_ADJUST = 8,
-};
-
 enum custom_keycodes {
     LT_LOWER = SAFE_RANGE,
     LT_RAISE,
