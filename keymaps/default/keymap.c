@@ -13,9 +13,9 @@ enum layer_number {
 };
 
 enum custom_keycodes {
-    LT_LOWER = SAFE_RANGE,
-    LT_RAISE,
-    SFT_ENT,
+    C_LOWER = SAFE_RANGE,
+    C_RAISE,
+    C_ENT,
 };
 
 #define USE_MAC 1
@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         KC_LSFT,    JP_Z,    JP_X,    JP_C,    JP_V,    JP_B,    JP_N,    JP_M, JP_COMM,  JP_DOT, JP_SLSH, UNDER_B,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT,LT_LOWER,  KC_SPC, SFT_ENT,LT_RAISE, KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX
+        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, C_LOWER,  KC_SPC,   C_ENT, C_RAISE, KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
     ),
 
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|--------+--------+--------+--------+--------+--------|
         KC_LSFT,    JP_N, XXXXXXX, XXXXXXX,  KC_ENT,  KC_DEL, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, JP_SLSH, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, _______,LT_RAISE, SFT_ENT,LT_RAISE, KC_LGUI, XXXXXXX, XXXXXXX, RESET
+        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, _______, C_RAISE,   C_ENT, C_RAISE, KC_LGUI, XXXXXXX, XXXXXXX, RESET
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
     ),
 
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, JP_LCBR, JP_RCBR, JP_BSLS, JP_LABK, JP_RABK, JP_QUES, JP_UNDS,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT,LT_LOWER, _______, SFT_ENT, _______, KC_LGUI, XXXXXXX, XXXXXXX, RESET
+        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, C_LOWER, _______,   C_ENT, _______, KC_LGUI, XXXXXXX, XXXXXXX, RESET
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
     ),
 
@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         KC_LSFT,   KC_F9,  KC_F10,  KC_F11,  KC_F12, KC_BTN2, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_INT2,  KC_APP,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, _______, _______, SFT_ENT, _______, KC_LGUI, XXXXXXX, XXXXXXX, RESET
+        XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, _______, _______,   C_ENT, _______, KC_LGUI, XXXXXXX, XXXXXXX, RESET
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
     )
 };
@@ -97,7 +97,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
 
     switch (keycode) {
-        case LT_LOWER:
+        case C_LOWER:
             if (record->event.pressed) {
                 lower_pressed = true;
                 lower_pressed_time = record->event.time;
@@ -119,7 +119,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
 
-        case LT_RAISE:
+        case C_RAISE:
             if (record->event.pressed) {
                 raise_pressed = true;
                 raise_pressed_time = record->event.time;
@@ -142,7 +142,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
 
-        case SFT_ENT:
+        case C_ENT:
             if (record->event.pressed) {
                 enter_pressed = true;
                 enter_pressed_time = record->event.time;
