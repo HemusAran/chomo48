@@ -28,9 +28,9 @@ enum custom_keycodes {
     #define D_KANA KC_HENK    // Windows Henkan Key
 #endif
 
-#define UNDER_B LSFT(JP_BSLS)       // under bar
-#define RDP LCTL(LALT(KC_PAUSE))    // Remote Desktop - Full screen on/off
-#define C_A_DEL LCTL(LALT(KC_DEL))    // Control Alt Delete
+#define D_UNDER LSFT(JP_BSLS)       // under bar
+#define D_RDP LCTL(LALT(KC_PAUSE))    // Remote Desktop - Full screen on/off
+#define D_CAD LCTL(LALT(KC_DEL))    // Control Alt Delete
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         KC_LCTL,    JP_A,    JP_S,    JP_D,    JP_F,    JP_G,    JP_H,    JP_J,    JP_K,    JP_L, JP_SCLN, JP_COLN,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        KC_LSFT,    JP_Z,    JP_X,    JP_C,    JP_V,    JP_B,    JP_N,    JP_M, JP_COMM,  JP_DOT, JP_SLSH, UNDER_B,
+        KC_LSFT,    JP_Z,    JP_X,    JP_C,    JP_V,    JP_B,    JP_N,    JP_M, JP_COMM,  JP_DOT, JP_SLSH, D_UNDER,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, C_LOWER,  KC_SPC,   C_ENT, C_RAISE, KC_LGUI, XXXXXXX, XXXXXXX,   RESET
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_ADJUST] = LAYOUT(
     //,-----------------------------------------------------------------------------------------------------------.
-        JP_ZKHK,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   RESET, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,     RDP, C_A_DEL,
+        JP_ZKHK,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   RESET, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,   D_RDP,   D_CAD,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         KC_LCTL,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_BTN1, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, JP_CAPS,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
