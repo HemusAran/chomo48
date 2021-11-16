@@ -20,7 +20,7 @@ enum custom_keycodes {
 
 #define USE_MAC 1
 
-#ifdef USE_MAC
+#if USE_MAC
     #define D_EISU KC_LANG2   // Mac Eisu Key (or Windows 20H2 Eisu)
     #define D_KANA KC_LANG1   // Mac Kana Key (or Windows 20H2 Kana)
 #else
@@ -101,6 +101,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 lower_pressed = true;
                 lower_pressed_time = record->event.time;
+                
                 layer_on(_LOWER);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
             } else {
