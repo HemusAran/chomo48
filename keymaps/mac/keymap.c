@@ -24,6 +24,8 @@ enum custom_keycodes {
 #define D_UNDER LSFT(JP_BSLS)       // under bar
 #define D_HOME LGUI(KC_LEFT)
 #define D_END LGUI(KC_RIGHT)
+#define D_PGDN LALT(KC_PGDN)
+#define D_PGUP LALT(KC_PGUP)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -45,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         KC_LGUI, KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_BSPC, KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|--------+--------+--------+--------+--------+--------|
-        KC_LSFT,    JP_N, XXXXXXX, XXXXXXX,  KC_ENT,  KC_DEL,  D_HOME, KC_PGDN, KC_PGUP,   D_END, JP_SLSH, XXXXXXX,
+        KC_LSFT,    JP_N, XXXXXXX, XXXXXXX,  KC_ENT,  KC_DEL,  D_HOME,  D_PGDN,  D_PGUP,   D_END, JP_SLSH, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, KC_LALT, KC_LGUI, _______, C_RAISE,   C_ENT, C_RAISE, KC_LCTL, XXXXXXX, XXXXXXX,   RESET
     //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
